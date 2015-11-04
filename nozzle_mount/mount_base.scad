@@ -51,7 +51,7 @@ module nozzle_mount_base() {
             
         }
         difference(){
-            translate([3+clearance/2,clearance/2,0])cube([17-clearance,6-clearance,8]);
+            translate([3+clearance/2,clearance,0])cube([17-clearance,6-clearance,8]);
             translate([0,3,4])rotate([0,-90,0])hole_through("M3", l=40, cld=0);
             translate([3,3,4])rotate([0,-90,0])nutcatch_parallel("M3", l=2.4,clk=0.2);
         }
