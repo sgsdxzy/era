@@ -35,9 +35,9 @@ module carriage_connector() {
     }
 }
 
-module nozzle_mount_base() {
+module nozzle_mount_base(){
     union(){
-        translate([0,-6,29])rotate([-45,0,0])difference(){
+        translate([0,-6,28])rotate([-45,0,0])difference(){
             cube([40,6*sqrt(2),6*sqrt(2)]);
             translate([8,0,0])cube([24,6*sqrt(2),6*sqrt(2)]);
             translate([4,3*sqrt(2),6*sqrt(2)])hole_through("M3",l=6*sqrt(2), cld=clearance);
@@ -46,14 +46,27 @@ module nozzle_mount_base() {
             translate([36,3*sqrt(2),2.4])nutcatch_parallel("M3", l=2.4,clk=clearance);           
         }
         translate([0,0,8])difference(){
-            cube([40,6,21]);
-            translate([0,-6,21])rotate([-45,0,0])cube([40,6*sqrt(2),6*sqrt(2)]);
+            cube([40,8,20]);
+            translate([0,-6,20])rotate([-45,0,0])cube([40,6*sqrt(2),6*sqrt(2)]);
+            translate([0,6,20])rotate([-45,0,0])cube([40,2*sqrt(2),2*sqrt(2)]);
             
-        }
-        difference(){
-            translate([3+clearance/2,clearance,0])cube([17-clearance,6-clearance,8]);
-            translate([0,3,4])rotate([0,-90,0])hole_through("M3", l=40, cld=0);
-            translate([3,3,4])rotate([0,-90,0])nutcatch_parallel("M3", l=2.4,clk=0.2);
         }
     }
 }
+
+module nozzle_mount() {
+    difference(){
+        carriage_connector();
+        translate([0,0,4.8])cube([40,8.5,3.2]);
+    }
+    
+    translate([0,10,0])difference(){
+        nozzle_mount_base();
+        translate([9,-5,16])rotate([-90,0,0])knurled_cyl_str(15,8,0.628,0.132,0);
+        translate([31,-5,16])rotate([-90,0,0])knurled_cyl_str(15,8,0.628,0.132,0);
+        translate([0,4,16])rotate([0,-90,0])hole_threaded("M3",l=9,cltd=1.5*clearance);
+        translate([31,4,16])rotate([0,-90,0])hole_threaded("M3",l=9,cltd=1.5*clearance);
+    }
+}
+
+nozzle_mount();
