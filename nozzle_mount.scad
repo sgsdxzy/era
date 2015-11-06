@@ -1,6 +1,6 @@
-include <../globals.scad>
-include <../lib/nutsnbolts/cyl_head_bolt.scad>;
-include <../lib/knurledFinishLib/knurledFinishLib_v2.scad>;
+include <globals.scad>
+include <lib/nutsnbolts/cyl_head_bolt.scad>;
+include <lib/knurledFinishLib/knurledFinishLib_v2.scad>;
 
 
 module carriage_connector() {
@@ -56,9 +56,7 @@ module nozzle_mount() {
     difference(){
         carriage_connector();
         translate([8.5-7.4/sqrt(3),0,4.8])cube([23+2*7.4/sqrt(3),8.5,3.2]);
-        translate([0,0,2])cube([2,40,6]);
-        translate([0,14,5])rotate([0,-90,0])hole_threaded("M3",l=9,cltd=1.5*clearance);
-        translate([0,10,0])cube([2,8,2]);
+        translate([0,25,4])rotate([0,-90,0])hole_threaded("M3",l=9,cltd=1.5*clearance);
     }
     
     translate([0,10,0])difference(){
@@ -67,7 +65,6 @@ module nozzle_mount() {
         translate([31,-5,16])rotate([-90,0,0])knurled_cyl_str(15,8,0.628,0.132,0);
         translate([0,4,16])rotate([0,-90,0])hole_threaded("M3",l=9,cltd=1.5*clearance);
         translate([31,4,16])rotate([0,-90,0])hole_threaded("M3",l=9,cltd=1.5*clearance);
-        translate([0,0,8])cube([2,8,2]);
     }
 }
 
