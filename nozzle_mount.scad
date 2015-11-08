@@ -68,7 +68,7 @@ module nozzle_mount() {
     difference(){
         carriage_connector();
         translate([8.5-7.4/sqrt(3),0,4.8])cube([23+2*7.4/sqrt(3),8.5,3.2]);
-        translate([0,25,4])rotate([0,-90,0])hole_threaded("M3",l=9,cltd=2.5*clearance);
+        //translate([0,25,4])rotate([0,-90,0])hole_threaded("M3",l=9,cltd=2.5*clearance);
     }
     
     translate([0,10,8])nozzle_mount_base();
