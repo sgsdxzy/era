@@ -2,6 +2,8 @@ include <globals.scad>
 include <lib/nutsnbolts/cyl_head_bolt.scad>;
 include <lib/knurledFinishLib/knurledFinishLib_v2.scad>;
 
+use <fan_duct.scad>
+
 
 module carriage_connector() {
     base_len = 34;
@@ -38,21 +40,16 @@ module nozzle_mount_base(){
         union(){
             cube([40,8,19]);
             translate([0,0,17])rotate([75,0,0])difference(){
-                union(){
-                    cube([40,6*sqrt(2),10]);
-                    /* Fan
-                    color("Gray",1)translate([0,6*sqrt(2),1])cube([40,10,40]);
-                    translate([0,6*sqrt(2),1])rotate([90,0,0])fan_duct();*/
-                }
-                translate([8,0,4])cube([24,6*sqrt(2),8]);
-                translate([4,0,5])rotate([90,0,0])hole_through("M3",l=6*sqrt(2), cld=clearance);
-                translate([4,-0.2,5])rotate([90,0,0])nutcatch_parallel("M3", l=2.6,clk=clearance);
-                translate([36,0,5])rotate([90,0,0])hole_through("M3",l=6*sqrt(2), cld=clearance);
-                translate([36,-0.2,5])rotate([90,0,0])nutcatch_parallel("M3", l=2.6,clk=clearance);  
+                cube([40,8,10]);
+                translate([20,0,21])rotate([-90,0,0])cylinder(d=38,h=8);
+                translate([4,0,5])rotate([90,0,0])hole_through("M3",l=8, cld=clearance);
+                translate([4,0,5])rotate([90,0,0])nutcatch_parallel("M3", l=2.6,clk=clearance);
+                translate([36,0,5])rotate([90,0,0])hole_through("M3",l=8, cld=clearance);
+                translate([36,0,5])rotate([90,0,0])nutcatch_parallel("M3", l=2.6,clk=clearance);  
             }
             intersection(){
                 cube([40,8,30]);
-                translate([0,0,17])rotate([-15,0,0])cube([40,20,6*sqrt(2)]);
+                translate([0,0,17])rotate([-15,0,0])cube([40,20,8]);
             }
         }
 
@@ -67,13 +64,18 @@ module nozzle_mount_base(){
 module nozzle_mount() {
     difference(){
         carriage_connector();
-        translate([8.5-7.4/sqrt(3),0,4.8])cube([23+2*7.4/sqrt(3),8.5,3.2]);
-        //translate([0,25,4])rotate([0,-90,0])hole_threaded("M3",l=9,cltd=2.5*clearance);
+        translate([9,0,4.8])cube([22,8.5,3.2]);
+        translate([10,8.5,17])rotate([90,0,0])cylinder(r=12.2,h=12);
+        translate([30,8.5,17])rotate([90,0,0])cylinder(r=12.2,h=12);
     }
     
     translate([0,10,8])nozzle_mount_base();
     
-    /* Nozzle
+    /* Fan duct 
+    translate([0,10,8])translate([0,0,17])rotate([75,0,0])translate([0,8,1])rotate([90,0,0])fan_duct();
+    */
+    
+    /* Nozzle  
     color("Gray",1){
         translate([10,5,17])rotate([90,0,0])cylinder(d=18,h=12);
         translate([10,-7,17])rotate([90,0,0])cylinder(d=16,h=18);
