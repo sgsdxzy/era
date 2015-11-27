@@ -30,18 +30,12 @@ module gantry_y_back_left_front_right()
         cube([20,30,20]);
     }
     
-
-    
-    translate([7,-2,7.5])rotate([0,-90,0])translate([0.6,0.6,0])minkowski(){
-        cube([3.8,2,4]);
+    translate([40,-5,7.1])rotate([0,-90,0])translate([0.6,0.6,0])minkowski(){
+        cube([4.6,4.4,18]);
         cylinder(d=1.2,h=1);
     }
-    translate([40,-2,7.5])rotate([0,-90,0])translate([0.6,0.6,0])minkowski(){
-        cube([3.8,2,4]);
-        cylinder(d=1.2,h=1);
-    }
-    translate([1.2,17,7.5])rotate([0,-90,90])translate([0.6,0.6,0])minkowski(){
-        cube([3.8,2,4]);
+    translate([0.6,17,7.1])rotate([0,-90,90])translate([0.6,0.6,0])minkowski(){
+        cube([4.6,4.4,9]);
         cylinder(d=1.2,h=1);
     }
 }

@@ -29,12 +29,12 @@ module gantry_x_front_left_right()
         cube([32,32,20]);
     }
     
-    translate([15,-2,7.5])rotate([0,-90,0])translate([0.6,0.6,0])minkowski(){
-        cube([3.8,2,4]);
+    translate([18,-5,7.1])rotate([0,-90,0])translate([0.6,0.6,0])minkowski(){
+        cube([4.6,4.4,9]);
         cylinder(d=1.2,h=1);
     }
-    translate([1.2,17,7.5])rotate([0,-90,90])translate([0.6,0.6,0])minkowski(){
-        cube([3.8,2,4]);
+    translate([0.6,18,7.1])rotate([0,-90,90])translate([0.6,0.6,0])minkowski(){
+        cube([4.6,4.4,9]);
         cylinder(d=1.2,h=1);
     }
 }
