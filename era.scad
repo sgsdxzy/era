@@ -24,7 +24,7 @@ translate([0,10,10])color("Gray",1){
 
 // Z axis
 translate([-21.1,354-42.2,3])color("Black",1)cube([42.2,42.2,47]);
-translate([0,354-21.1,50])color("White",1)cylinder(d=8,h=310);
+translate([0,354-21.1,50])color("White",1)cylinder(d=8,h=300);
 // SK12 and shafts
 translate([72,354,37])rotate([0,0,180]){
     difference(){
