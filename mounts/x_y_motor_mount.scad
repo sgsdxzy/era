@@ -1,6 +1,6 @@
 include <nema17_mount.scad>
 
-module x_motor_mount()
+module x_y_motor_mount()
 {
     difference(){
         union(){
@@ -14,7 +14,7 @@ module x_motor_mount()
                 translate([13,10,30])hole_through("M4",l=10, cld=clearance,h=4,hcld=2*clearance);
             }              
         }
-        translate([-30,30,0])cube([60,40,10]);
+        translate([-30,30.15,-1])cube([60,40,11]);
         translate([-15.5,25.65,-1])rotate([180,0,0])hole_through("M3",l=0, cld=clearance,h=5,hcld=2*clearance);
         translate([15.5,25.65,-1])rotate([180,0,0])hole_through("M3",l=0, cld=clearance,h=5,hcld=2*clearance);
         translate([-15.5,56.65,9])rotate([180,0,0])hole_through("M3",l=0, cld=clearance,h=5,hcld=2*clearance);
@@ -64,4 +64,4 @@ module x_motor_mount()
     */
 }
 
-x_motor_mount();
+x_y_motor_mount();
