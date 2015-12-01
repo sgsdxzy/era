@@ -5,8 +5,8 @@ module gantry_x_front_left_right()
 {
     difference(){
         union(){
-            cube([32,6,20]);
-            cube([6,32,20]);
+            cube([34,6,20]);
+            cube([6,34,20]);
             cube([24,12,20]);
             cube([12,24,20]);
             translate([12,12,0])cylinder(d=24,h=20);
@@ -21,12 +21,12 @@ module gantry_x_front_left_right()
     intersection(){
         difference(){
             union(){
-                translate([6,-20,0])rotate([0,0,45])cube([26*sqrt(2),26*sqrt(2),6]);
-                translate([6,-20,14])rotate([0,0,45])cube([26*sqrt(2),26*sqrt(2),6]);
+                translate([6,-22,0])rotate([0,0,45])cube([28*sqrt(2),28*sqrt(2),6]);
+                translate([6,-22,14])rotate([0,0,45])cube([28*sqrt(2),28*sqrt(2),6]);
             }
             translate([12,12,0])cylinder(d=24,h=20);
         }
-        cube([32,32,20]);
+        cube([34,34,20]);
     }
     
     translate([18,-5,7.1])rotate([0,-90,0])translate([0.6,0.6,0])minkowski(){

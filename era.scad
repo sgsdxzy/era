@@ -67,4 +67,4 @@ translate([150-12,10,380-30])rotate([-90,0,0])color("White",1)cylinder(d=8,h=348
 translate([0,20+12,380-12])rotate([0,90,0])color("White",1)cylinder(d=8,h=337,center=true);
 translate([0,354-38,380-12])rotate([0,90,0])color("White",1)cylinder(d=8,h=337,center=true);
 translate([-150+5,50,343])cube([14,34,31.5]);
-translate([-150+40,50,335])cube([40,40,60]);
+translate([-150+40,50,350-40])cube([40,40,60]);

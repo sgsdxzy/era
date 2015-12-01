@@ -6,7 +6,7 @@ module gantry_y_back_right_front_left()
     mirror([1,0,0]){
         difference(){
             union(){
-                cube([52,6,20]);
+                cube([53,6,20]);
                 translate([18,0,0])cube([24,12,20]);
                 translate([30,12,0])cylinder(d=24,h=20);
             }
