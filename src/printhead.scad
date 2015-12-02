@@ -2,10 +2,6 @@ include <../globals.scad>;
 include <../lib/nutsnbolts/cyl_head_bolt.scad>;
 include <../lib/knurledFinishLib/knurledFinishLib_v2.scad>;
 
-include <nozzle_throat_fanduct.scad>;
-include <nozzle_fanduct.scad>;
-
-
 module LMK6LUU_carriage() 
 {
     translate([0,5,0])difference(){
@@ -53,7 +49,66 @@ module LMK6LUU_carriage()
     translate([15,0,-24])cube([5,22,6]);
 }
 
-module nozzle_mount()
+module nozzle_fanduct_single()
+{
+    difference(){
+        translate([20,0,0])cube([16*sqrt(2),30,16*sqrt(2)]);
+        
+        translate([20,0,16*sqrt(2)])rotate([0,45,0])cube([32,32,16]);
+        hull(){
+            translate([20+8*sqrt(2),15,8*sqrt(2)])rotate([0,45,0])cylinder(d=28,h=1);
+            intersection(){
+                translate([10,20,1])cylinder(d=28,h=0.2);
+                translate([21,0,0])cube([16*sqrt(2),30,16*sqrt(2)]);
+            }
+        }
+        intersection(){
+                translate([10,20,0])cylinder(d=28,h=1);
+                union(){
+                    translate([21,0,0])cube([16*sqrt(2),30,1]);
+                    translate([20,0,-4])rotate([0,-45,0])cube([16*sqrt(2),30,2*sqrt(2)]);
+                    //translate([20,0,0])cube([16*sqrt(2),30,1]);
+                }
+            }
+        
+        translate([20+(8+6)*sqrt(2),15-12,(8-6)*sqrt(2)])rotate([0,45,0])hole_threaded("M3",l=8,cltd=2.5*clearance);
+        translate([20+(8+6)*sqrt(2),15+12,(8-6)*sqrt(2)])rotate([0,45,0])hole_threaded("M3",l=8,cltd=2.5*clearance);
+        translate([20+(8-6)*sqrt(2),15-12,(8+6)*sqrt(2)])rotate([0,45,0])hole_threaded("M3",l=8,cltd=2.5*clearance);
+        translate([20+(8-6)*sqrt(2),15+12,(8+6)*sqrt(2)])rotate([0,45,0])hole_threaded("M3",l=8,cltd=2.5*clearance);
+    }
+    translate([19,0,20.2])cube([1,30,12.8]);
+}
+    
+module nozzle_fanduct()
+{
+    nozzle_fanduct_single();    
+    mirror([1,0,0]){
+        nozzle_fanduct_single();
+    }
+    
+}
+
+module nozzle_throat_fanduct()
+{
+    difference(){
+        translate([-20,0,0])hull(){
+            cube([40,4,23]);
+            translate([0,26,7])cube([40,4,16]);
+        }
+        hull(){
+            translate([0,0,15])rotate([-90,0,0])cylinder(d=28,h=4);
+            translate([-18,26,9])cube([36,4,14]);
+        }
+        translate([-10,30,0])cylinder(d=22,h=40);
+        translate([10,30,0])cylinder(d=22,h=40);
+        translate([-10,21,4])cube([20,10,4]);
+        
+        translate([-12,0,3])rotate([90,0,0])hole_threaded("M3",l=5,cltd=2.5*clearance);
+        translate([12,0,3])rotate([90,0,0])hole_threaded("M3",l=5,cltd=2.5*clearance);
+    }
+}
+
+module printhead()
 {
     difference(){
         LMK6LUU_carriage();
@@ -73,7 +128,6 @@ module nozzle_mount()
         translate([10,32,-20])rotate([90,0,0])hole_threaded("M3",l=9,cltd=2.5*clearance);
         translate([-10,32,-20])rotate([90,0,0])hole_threaded("M3",l=9,cltd=2.5*clearance);
     }
- 
     
     color("Gray",1){
         // Fan ducts
@@ -91,9 +145,7 @@ module nozzle_mount()
         translate([-18,25,-57])cube([16,20,11]);
         translate([-10,30,-57])rotate([180,0,0])cylinder(d=8,h=5); 
         */
-    }
-    
+    }    
 }
 
-
-nozzle_mount();
+printhead();
