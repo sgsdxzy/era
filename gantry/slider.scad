@@ -17,7 +17,8 @@ module slider()
         translate([17,0,12])rotate([0,90,0])cylinder(d=11,h=30,center=true);
         translate([1,0,12])rotate([0,90,0])cylinder(d=8.5,h=2,center=true);
         translate([33,0,12])rotate([0,90,0])cylinder(d=8.5,h=2,center=true);
-        translate([17,10,30])rotate([90,0,0])cylinder(d=6,h=20);
+        translate([17,7,30])rotate([90,0,0])cylinder(d=6,h=2);
+        translate([17,10,30])rotate([90,0,0])cylinder(d=6-clearance/2,h=20);
         translate([0,0,24])rotate([90,0,0])belt_len(profile = tGT2_2, belt_width = 7, len=16);     
         
         translate([3.6,0,3.6])rotate([90,0,0])hole_through("M3",l=20, cld=clearance);
@@ -25,7 +26,7 @@ module slider()
         translate([3.6,-6,28.4])rotate([90,0,0])hole_through("M3",l=20, cld=clearance);
         translate([30.4,0,28.4])rotate([90,0,0])hole_through("M3",l=20, cld=clearance);
     }
-    translate([18,-5,20])cube([16,5,3.6]);
+    translate([18,-5,20.1])cube([16,5,3.4]);
 }
 
 slider();
