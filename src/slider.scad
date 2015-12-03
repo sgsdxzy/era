@@ -26,7 +26,7 @@ module slider()
         translate([3.6,-6,28.4])rotate([90,0,0])hole_through("M3",l=20, cld=clearance);
         translate([30.4,0,28.4])rotate([90,0,0])hole_through("M3",l=20, cld=clearance);
     }
-    translate([18,-5,20.1])cube([16,5,3.4]);
+    translate([18,-5,20.2])cube([16,5,3.2]);
 }
 
 slider();

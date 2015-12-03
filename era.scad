@@ -57,9 +57,9 @@ translate([-30,354,383])rotate([0,0,180]){
     }
 }
 // TODO:Z support
-translate([-70,220,315])cube([140,130,20]);
+translate([-70,181,315])cube([140,170,6]);
 // Z base plate
-translate([-110,20+27.5+16,335])color("Grey",1)cube([220,220,2]);
+translate([-110,91,321])color("Grey",1)cube([220,220,2]);
 
 // XY system, ultimaker style
 translate([-150+12,10,380-30])rotate([-90,0,0])color("White",1)cylinder(d=8,h=348);
