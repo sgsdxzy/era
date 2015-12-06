@@ -1,8 +1,23 @@
 # Makefile to generate all stls at once and put them in stl folder
 
-TARGETS = slider x_end_stop y_back_left_front_right y_endstop_spacer z_support x_back_left \
-	  x_front_left_right y_back_right_front_left printhead x_back_right \
-	  x_y_motor_mount z_motor_mount
+TARGETS = \
+    printhead\
+    slider\
+    spacer_10x3\
+    spacer_2_5x2\
+    spacer_28_5\
+    spacer_2\
+    x_back_left\
+    x_back_right\
+    x_end_stop\
+    x_front_left_right\
+    x_motor_mount\
+    y_back_left_front_right\
+    y_back_right_front_left\
+    y_endstop_spacer\
+    y_motor_mount\
+    z_motor_mount\
+    z_support
 
 all: $(patsubst %,%.stl,${TARGETS})
 

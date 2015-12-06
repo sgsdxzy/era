@@ -7,7 +7,7 @@ module gantry_x_back_left()
         union(){
             cube([60,6,20]);
             translate([26,0,0])cube([24,12,20]);
-            translate([38,12,0])cylinder(d=24,h=20);
+            //translate([38,12,0])cylinder(d=24,h=20);
         }
         translate([38,12,0])cylinder(d=18+clearance/2,h=12);
         translate([38,12,12])cylinder(d1=18+clearance/2,d2=18+clearance,h=8);

@@ -1,6 +1,6 @@
 include <nema17_mount.scad>
 
-module x_y_motor_mount()
+module x_motor_mount()
 {
     difference(){
         union(){
@@ -64,4 +64,4 @@ module x_y_motor_mount()
     */
 }
 
-x_y_motor_mount();
+x_motor_mount();
