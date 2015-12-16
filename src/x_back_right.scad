@@ -7,15 +7,15 @@ module gantry_x_back_right()
         difference(){
             union(){
                 cube([60,6,20]);
-                translate([27.2,0,0])cube([24,12,20]);
-                translate([39.2,12,0])cylinder(d=24,h=20);
+                translate([26,0,0])cube([24,12,20]);
+                translate([38,12,0])cylinder(d=24,h=20);
             }
-            translate([39.2,12,0])cylinder(d=18+clearance/2,h=12);
-            translate([39.2,12,12])cylinder(d1=18+clearance/2,d2=18+clearance,h=8);
-            translate([55.2,0,10])rotate([90,0,0])hole_through("M4",l=8, cld=clearance);
+            translate([38,12,0])cylinder(d=18+clearance/2,h=12);
+            translate([38,12,12])cylinder(d1=18+clearance/2,d2=18+clearance,h=8);
+            translate([54,0,10])rotate([90,0,0])hole_through("M4",l=8, cld=clearance);
             translate([22,0,10])rotate([90,0,0])hole_through("M4",l=8, cld=clearance);
         }
-        translate([39.2,12,0])f688zz_mount();
+        translate([38,12,0])f688zz_mount();
         
         intersection(){
             difference(){
@@ -27,7 +27,7 @@ module gantry_x_back_right()
                 }
                 translate([0,24,10])rotate([0,-90,0])hole_through("M4",l=8, cld=clearance);
             }
-            cube([27.2,30,20]);
+            cube([26,30,20]);
         }
     
         
