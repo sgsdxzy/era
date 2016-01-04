@@ -17,7 +17,6 @@ TARGETS = \
     y_endstop_spacer\
     y_motor_mount\
     z_motor_mount\
-    z_support
 
 all: $(patsubst %,%.stl,${TARGETS})
 

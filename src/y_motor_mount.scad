@@ -16,10 +16,10 @@ module y_motor_mount()
             }              
         }
         //translate([-30,40.15,-1])cube([60,70,4]);
-        translate([-15.5,42.5,-1])rotate([180,0,0])hole_through("M3",l=0, cld=clearance,h=6.5,hcld=2*clearance);
-        translate([15.5,42.5,-1])rotate([180,0,0])hole_through("M3",l=0, cld=clearance,h=6.5,hcld=2*clearance);
-        translate([-15.5,73.5,-1])rotate([180,0,0])hole_through("M3",l=0, cld=clearance,h=6.5,hcld=2*clearance);
-        translate([15.5,73.5,-1])rotate([180,0,0])hole_through("M3",l=0, cld=clearance,h=6.5,hcld=2*clearance);
+        translate([-15.5,42.5,-1])rotate([180,0,0])hole_through("M3",l=0, cld=clearance,h=6,hcld=2*clearance);
+        translate([15.5,42.5,-1])rotate([180,0,0])hole_through("M3",l=0, cld=clearance,h=6,hcld=2*clearance);
+        translate([-15.5,73.5,-1])rotate([180,0,0])hole_through("M3",l=0, cld=clearance,h=6,hcld=2*clearance);
+        translate([15.5,73.5,-1])rotate([180,0,0])hole_through("M3",l=0, cld=clearance,h=6,hcld=2*clearance);
         translate([0,47,8])cube([30,22,16]);
         translate([-42.3/2-4,20,10])rotate([90,0,0])hole_through("M4",l=10, cld=clearance);
         translate([42.3/2+4,20,10])rotate([90,0,0])hole_through("M4",l=10, cld=clearance);
