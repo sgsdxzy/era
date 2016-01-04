@@ -23,9 +23,9 @@ module LMK6LUU_carriage()
         translate([0,0,11])rotate([-90,0,0])cylinder(d=12+clearance/2,h=30);
         translate([0,0,11])rotate([-90,0,0])cylinder(d=8,h=35);
         
-        translate([5*sqrt(2),0,11+5*sqrt(2)])rotate([90,0,0])hole_through("M3",l=19, cld=clearance);
+        translate([5*sqrt(2),0,11+5*sqrt(2)])rotate([90,0,0])hole_through("M3",l=21, cld=clearance);
         translate([5*sqrt(2),14,11+5*sqrt(2)])rotate([90,-90,0])nutcatch_sidecut("M3",l=50,clk=clearance,clsh=clearance,clh=1);
-        translate([-5*sqrt(2),0,11+5*sqrt(2)])rotate([90,0,0])hole_through("M3",l=19, cld=clearance);
+        translate([-5*sqrt(2),0,11+5*sqrt(2)])rotate([90,0,0])hole_through("M3",l=21, cld=clearance);
         translate([-5*sqrt(2),14,11+5*sqrt(2)])rotate([90,-90,0])nutcatch_sidecut("M3",l=50,clk=clearance,clsh=clearance,clh=1);
         translate([5*sqrt(2),0,11-5*sqrt(2)])rotate([90,0,0])hole_threaded("M3",l=10, cltd=2.5*clearance);      
         translate([-5*sqrt(2),0,11-5*sqrt(2)])rotate([90,0,0])hole_threaded("M3",l=10, cltd=2.5*clearance);
@@ -41,8 +41,8 @@ module LMK6LUU_carriage()
         translate([0,0,11])rotate([-90,0,0])cylinder(d=12+clearance/2,h=30);
         translate([0,0,11])rotate([-90,0,0])cylinder(d=8,h=35);
         
-        translate([-5*sqrt(2),0,11+5*sqrt(2)])rotate([90,0,0])hole_threaded("M3",l=4, cltd=2.5*clearance);       
-        translate([5*sqrt(2),0,11+5*sqrt(2)])rotate([90,0,0])hole_threaded("M3",l=10, cltd=2.5*clearance);       
+        translate([-5*sqrt(2),0,11+5*sqrt(2)])rotate([90,0,0])hole_threaded("M3",l=4, cltd=2*clearance);       
+        translate([5*sqrt(2),0,11+5*sqrt(2)])rotate([90,0,0])hole_threaded("M3",l=10, cltd=2*clearance);       
         translate([5*sqrt(2),0,11-5*sqrt(2)])rotate([90,0,0])hole_through("M3",l=35, cld=clearance);       
         translate([5*sqrt(2),35,11-5*sqrt(2)])rotate([-90,90,0])nutcatch_parallel("M3", l=4, clk=clearance);
         translate([-5*sqrt(2),0,11-5*sqrt(2)])rotate([90,0,0])hole_through("M3",l=35, cld=clearance);       
@@ -59,35 +59,25 @@ module nozzle_fanduct_single()
 {
     difference(){
         union(){
-            translate([20,0,0])cube([16*sqrt(2),30,16*sqrt(2)]);
+            hull(){
+                translate([20,0,16*sqrt(2)])rotate([0,45,0])cube([32,30,1e-9]);
+                translate([20,0,0])rotate([0,70,0])cube([5,30,1]);
+            }
             translate([19,0,12])cube([1,30,27]);
             translate([19,12,20.2])cube([1,18,20.8]);
-        }
+        }      
         
-        translate([20,0,16*sqrt(2)])rotate([0,45,0])cube([32,32,16]);
         hull(){
             translate([20+8*sqrt(2),15,8*sqrt(2)])rotate([0,45,0])cylinder(d=28,h=1);
-            translate([21,13,1])cube([12,14,0.1]);
+            translate([20,15,0])rotate([0,70,0])translate([1,0,0])cube([3,10,1]);
         }
-        translate([21,13,0])cube([10,14,1]);
+        translate([20,15,0])rotate([0,70,0])translate([1,0,-1])cube([3,10,2]);
         
         
         translate([20+(8+6)*sqrt(2),15-12,(8-6)*sqrt(2)])rotate([0,45,0])hole_threaded("M3",l=8,cltd=2.5*clearance);
         translate([20+(8+6)*sqrt(2),15+12,(8-6)*sqrt(2)])rotate([0,45,0])hole_threaded("M3",l=8,cltd=2.5*clearance);
         translate([20+(8-6)*sqrt(2),15-12,(8+6)*sqrt(2)])rotate([0,45,0])hole_threaded("M3",l=8,cltd=2.5*clearance);
         translate([20+(8-6)*sqrt(2),15+12,(8+6)*sqrt(2)])rotate([0,45,0])hole_threaded("M3",l=8,cltd=2.5*clearance);
-    }
-    difference(){
-        hull(){
-            translate([20,10,0])cube([14,20,1]);
-            translate([20,12,0])rotate([0,60,0])cube([5,16,1]);
-        }
-        translate([20,10,0])cube([14,20,1]);
-        hull(){
-            translate([32,13,0.5])rotate([0,0,90])trapezoid(14,10,11,0.5);
-            translate([20,15,0])rotate([0,60,0])translate([0.5,0,0])cube([3.5,10,1]);
-        }
-        translate([20,15,0])rotate([0,60,0])translate([0,0,-1])cube([4,10,1.00001]);
     }
 }
     
@@ -137,8 +127,8 @@ module printhead()
         translate([-12,0,-20])rotate([90,0,0])hole_threaded("M3",l=6,cltd=2.5*clearance);
        
         // Nozzle mount
-       // translate([-10.5,30,-24])scale((8+clearance)/8)knurled_cyl_str(15,8,0.942,0.198*2,0);
-        //translate([10.5,30,-24])scale((8+clearance)/8)knurled_cyl_str(15,8,0.942,0.198*2,0);
+        translate([-10.5,30,-24])scale((8+clearance)/8)knurled_cyl_str(15,8,0.942,0.198*2,0);
+        translate([10.5,30,-24])scale((8+clearance)/8)knurled_cyl_str(15,8,0.942,0.198*2,0);
 
         translate([10.5,32,-20])rotate([90,0,0])hole_threaded("M3",l=9,cltd=2.5*clearance);
         translate([-10.5,32,-20])rotate([90,0,0])hole_threaded("M3",l=9,cltd=2.5*clearance);
@@ -149,7 +139,7 @@ module printhead()
         translate([0,0,-47])nozzle_throat_fanduct();
         translate([0,10,-57])nozzle_fanduct();
     
-        /* 
+        /*
         // Nozzles
         translate([10.5,30,-24])rotate([180,0,0])cylinder(d=18,h=18);
         translate([10.5,30,-24])rotate([180,0,0])cylinder(d=12,h=22);
