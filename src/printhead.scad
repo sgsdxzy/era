@@ -57,13 +57,17 @@ module LMK6LUU_carriage()
 
 module nozzle_fanduct_single()
 {
+    
     difference(){
         union(){
             hull(){
                 translate([20,0,16*sqrt(2)])rotate([0,45,0])cube([32,30,1e-9]);
-                translate([20,0,0])rotate([0,70,0])cube([5,30,1]);
+                translate([19,0,0])rotate([0,70,0])cube([5,30,1]);
+
+                translate([19,0,12])cube([1,30,16*sqrt(2)-12]);
+                
             }
-            translate([19,0,12])cube([1,30,27]);
+            translate([19,0,20.2])cube([1,30,18.8]);
             translate([19,12,20.2])cube([1,18,20.8]);
         }      
         
