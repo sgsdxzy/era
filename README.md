@@ -13,7 +13,7 @@ We desgin for a minimum of 200mm/s. 400mm/s is possible.
 
 ### How cheap
 
-Exceed 1000 CNY (around 170 USD) and we fail.
+It should cost around 1200-1400 CNY If you live in China and buy all parts online.
 
 ### How simple
 
