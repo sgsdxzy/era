@@ -67,15 +67,15 @@ module nozzle_fanduct_single()
                 translate([19,0,12])cube([1,30,16*sqrt(2)-12]);
                 
             }
-            translate([19,0,20.2])cube([1,30,18.8]);
-            translate([19,12,20.2])cube([1,18,20.8]);
+            translate([19,0,20.2])cube([1,30,19.8]);
+            translate([19,12,20.2])cube([1,18,21.8]);
         }      
         
         hull(){
             translate([20+8*sqrt(2),15,8*sqrt(2)])rotate([0,45,0])cylinder(d=28,h=1);
-            translate([20,15,0])rotate([0,70,0])translate([1,0,0])cube([3,10,1]);
+            translate([20,12,0])rotate([0,70,0])translate([1.5,0,0])cube([2.5,16,1]);
         }
-        translate([20,15,0])rotate([0,70,0])translate([1,0,-1])cube([3,10,2]);
+        translate([20,12,0])rotate([0,70,0])translate([1.5,0,-1])cube([2.5,16,1.2]);
         
         
         translate([20+(8+6)*sqrt(2),15-12,(8-6)*sqrt(2)])rotate([0,45,0])hole_threaded("M3",l=8,cltd=2.5*clearance);
@@ -105,9 +105,9 @@ module nozzle_throat_fanduct()
             translate([0,0,15])rotate([-90,0,0])cylinder(d=28,h=4);
             translate([-18,26,9])cube([36,4,14]);
         }
-        translate([-10.5,30,0])cylinder(d=22,h=40);
-        translate([10.5,30,0])cylinder(d=22,h=40);
-        translate([-10,19,4])cube([20,10,4]);
+        translate([-10.5,30,0])cylinder(d=16,h=40);
+        translate([10.5,30,0])cylinder(d=16,h=40);
+        translate([-10,26,4])cube([20,10,20]);
         
         translate([-12,0,3])rotate([90,0,0])hole_threaded("M3",l=5,cltd=2.5*clearance);
         translate([12,0,3])rotate([90,0,0])hole_threaded("M3",l=5,cltd=2.5*clearance);
@@ -141,18 +141,18 @@ module printhead()
     color("Gray",1){
         // Fan ducts
         translate([0,0,-47])nozzle_throat_fanduct();
-        translate([0,10,-57])nozzle_fanduct();
+        translate([0,10,-58])nozzle_fanduct();
     
         /*
         // Nozzles
         translate([10.5,30,-24])rotate([180,0,0])cylinder(d=18,h=18);
         translate([10.5,30,-24])rotate([180,0,0])cylinder(d=12,h=22);
-        translate([2.5,15,-57])cube([16,20,11]);       
-        translate([10.5,30,-57])rotate([180,0,0])cylinder(d=8,h=5);
+        translate([2.5,15,-58])cube([16,20,11]);       
+        translate([10.5,30,-58])rotate([180,0,0])cylinder(d1=8,d2=2,h=5);
         translate([-10.5,30,-24])rotate([180,0,0])cylinder(d=18,h=18);
         translate([-10.5,30,-24])rotate([180,0,0])cylinder(d=12,h=22);
-        translate([-18.5,25,-57])cube([16,20,11]);
-        translate([-10.5,30,-57])rotate([180,0,0])cylinder(d=8,h=5); 
+        translate([-18.5,25,-58])cube([16,20,11]);
+        translate([-10.5,30,-58])rotate([180,0,0])cylinder(d1=8,d2=2,h=5);      
         */
     }    
 }
